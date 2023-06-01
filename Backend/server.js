@@ -5,8 +5,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-app.use(express.static("/home/rutujapatil/Downloads/Assignment/Frontend"));
-app.use('/app/*', express.static("/home/rutujapatil/Downloads/Assignment/Frontend/index.html"));
+app.use(express.static("/home/rutujapatil/Documents/Travelopia-Travellers-Assignment/Frontend"));
+app.use('/app/*', express.static("/home/rutujapatil/Documents/Travelopia-Travellers-Assignment/Frontend/index.html"));
 
 require("./app/routes/routes")(app);
 
@@ -18,6 +18,6 @@ db.sequelize.sync().then(() => {
 });
 
 
-app.listen(3001, () => {
-  console.log('Server is running on port 3001');
+app.listen(8080, () => {
+  console.log('Server is running on port 8080');
 });
