@@ -1,0 +1,66 @@
+<div layout="column" style="margin-top:5%;" layout-align="center center">
+    <md-card>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h3>Travellers Form</h3>
+            </div>
+        </md-toolbar>
+        <md-card-content>
+            <form name="form" ng-submit="save(form)">
+                <md-input-container class="md-icon-float md-block" style="width:280px;">
+                    <label>Name</label>
+                    <md-icon md-svg-src="icons/baseline-account_circle-24px.svg" class="name"></md-icon>
+                    <input required type="text" name="name" ng-model="name" minlength="3" maxlength="20" />
+                    <div ng-messages="form.special.$error">
+                        <div ng-message="required">
+                            Please enter correct Name
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block" style="width:280px;">
+                    <label> Email address</label>
+                    <md-icon md-svg-src="icons/ic_email_black_24px.svg" class="name"></md-icon>
+                    <input required type="email" name="email" ng-model="email" minlength="3" maxlength="30"
+                        ng-pattern="/^.+@.+\..+$/" />
+                    <div ng-messages="form.special.$error">
+                        <div ng-message="required">
+                            Please enter correct Email address
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-icon-float md-block" style="width:280px;">
+                    <label>Where do you want to go?</label>
+                    <md-icon md-svg-src="icons/location_for_country.svg" class="name"></md-icon>
+                    <md-select ng-model="country">
+                        <md-option><em>None</em></md-option>
+                        <md-option ng-repeat="country in countries" ng-value="country" ng-disabled="$index === -1">
+                            {{country}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container>
+                    <label>No. of travellers</label>
+                    <md-icon md-svg-src="icons/nooftraveller.svg" class="name"></md-icon>
+                    <input required type="number" name="nooftraveller" ng-model="nooftraveller" min="1" />
+                    <div ng-messages="form.special.$error">
+                        <div ng-message="required">
+                            Please enter No. of travellers
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <label>Budget per person</label>
+                    <md-icon md-svg-src="icons/budget-cost-svgrepo-com.svg" class="name"></md-icon>
+                    <input required type="number" name="budget" ng-model="budget" min="1" />
+                    <div ng-messages="form.special.$error">
+                        <div ng-message="required">
+                            Please enter Budget per person
+                        </div>
+                    </div>
+                </md-input-container>
+                <div style="text-align: right;"><md-button class="md-raised" type="submit">Submit</md-button>
+                </div>
+            </form>
+        </md-card-content>
+    </md-card>
+</div>
